@@ -1,4 +1,4 @@
-let items = [
+let tasks = [
 	"Сделать проектную работу",
 	"Полить цветы",
 	"Пройти туториал по Реакту",
@@ -26,7 +26,7 @@ function loadTasks() {
 		return savedTasks;
 	}
 
-	return items;
+	return tasks;
 }
 
 function createItem(item) {
@@ -64,10 +64,10 @@ function createItem(item) {
 }
 
 function getTasksFromDOM() {
-	const itemsNamesElements = listElement.querySelectorAll(".to-do__item-text");
+	const tasksNamesElements = listElement.querySelectorAll(".to-do__item-text");
   const tasks = [];
 
-  itemsNamesElements.forEach(function (element) {
+  tasksNamesElements.forEach(function (element) {
 		tasks.push(element.textContent);
 	});
 
@@ -78,7 +78,7 @@ function saveTasks(tasks) {
 	localStorage.setItem('allTasks', JSON.stringify(tasks));
 }
 
-items = loadTasks();
-items.forEach(function (item) {
-	listElement.append(createItem(item));
+tasks = loadTasks();
+tasks.forEach(function (task) {
+	listElement.append(createItem(task));
 });
